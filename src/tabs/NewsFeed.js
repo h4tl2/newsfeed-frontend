@@ -64,15 +64,15 @@ export default class NewsFeed extends React.PureComponent {
                                 because nobody takes it seriously
                             </Text>
                         </View>
-                        <Item style={[styles.noBottomBorder, { alignSelf: 'flex-end' }]}>
-                            <Button transparent>
-                                <Text style={{ fontSize: 12 }}>Save</Text>
+                        <Item style={[styles.noBottomBorder, styles.userButtonGroup]}>
+                            <Button transparent style={styles.userButton}>
+                                <Text style={styles.userButtonText}>Follow</Text>
                             </Button>
-                            <Button transparent>
-                                <Text style={{ fontSize: 12 }}>Share</Text>
+                            <Button transparent style={styles.userButton}>
+                                <Text style={styles.userButtonText}>Share</Text>
                             </Button>
-                            <Button transparent>
-                                <Text style={{ fontSize: 12 }}>Share</Text>
+                            <Button transparent style={styles.userButton}>
+                                <Text style={styles.userButtonText}>Save</Text>
                             </Button>
                         </Item>
 
@@ -118,5 +118,15 @@ const styles = StyleSheet.create({
     },
     mostNewsTitle: {
         paddingVertical: 8
+    },
+    userButtonGroup: {
+        alignSelf: 'flex-end',
+    },
+    userButton: {
+        paddingLeft: 0,
+        marginLeft: 0
+    },
+    userButtonText: {
+        fontSize: 12
     }
 });
