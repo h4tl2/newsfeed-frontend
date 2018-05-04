@@ -18,6 +18,9 @@ export const rootStyle = StyleSheet.create({
     },
     tabIconFocused: {
         color: "#4D89F2"
+    },
+    contentPadder: {
+        padding: 10
     }
 });
 
