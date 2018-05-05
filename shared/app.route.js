@@ -22,10 +22,11 @@ var TabRoutes = TabNavigator({
     tabBarPosition: 'bottom',
     swipeEnabled: true,
     tabBarOptions: {
+        style: { marginVertical: 2, paddingVertical: 3 },
         labelStyle: {
-            fontSize: 12,
-             padding: 0
-        }
+            fontSize: 9,
+            padding: 0
+        },
     }
 });
 

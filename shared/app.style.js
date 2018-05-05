@@ -5,6 +5,7 @@ export const rootStyle = StyleSheet.create({
         height: 0,
         backgroundColor: "#FFF",
         borderBottomWidth: 0,
+        paddingBottom: 5
     },
     headerBG: {
         backgroundColor: "#FFF"
@@ -12,7 +13,7 @@ export const rootStyle = StyleSheet.create({
     headerText: {
         color: "#005EEB",
         fontSize: 28,
-        paddingHorizontal: 10,
+        paddingHorizontal: 8,
         paddingVertical: 15,
         fontWeight: 'bold'
     },
@@ -26,5 +27,6 @@ export const rootStyle = StyleSheet.create({
 
 export const variableStyle = {
     tabIcon: "#555",
-    tabIconFocused: "#4D89F2"
+    tabIconFocused: "#4D89F2",
+    tabIconSize: 22
 }

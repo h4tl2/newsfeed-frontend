@@ -9,7 +9,7 @@ export default class NewsFeed extends React.PureComponent {
         tabBarLabel: 'Chat',
         tabBarIcon: ({ tintColor, focused }) => (
             <Icon name="ios-bookmark-outline"
-                style={{ color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
+            style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
         )
     }
 

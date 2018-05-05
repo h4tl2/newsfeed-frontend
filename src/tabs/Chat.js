@@ -10,7 +10,7 @@ export default class Chat extends React.PureComponent {
         tabBarIcon: ({ tintColor, focused }) => (
 
             <Icon name="ios-chatbubbles-outline"
-                style={{ color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon  }}/>
+            style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
         )
     }
 

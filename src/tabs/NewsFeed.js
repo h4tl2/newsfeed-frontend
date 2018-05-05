@@ -12,7 +12,7 @@ export default class NewsFeed extends React.PureComponent {
         tabBarLabel: 'NewsFeed',
         tabBarIcon: ({ tintColor, focused }) => (
             <Icon name="ios-paper-outline"
-                style={{ color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
+                style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
         )
     }
 
@@ -37,9 +37,10 @@ export default class NewsFeed extends React.PureComponent {
 
         return (
 
-            <Container>
+            <Container style={styles.container}>
                 <Header style={rootStyle.headerStyle} />
                 <Content>
+                    {/* Top 10 Hashtag */}
                     <View style={rootStyle.headerBG}>
                         <Text style={rootStyle.headerText}>NewsFeed</Text>
                     </View>
@@ -55,6 +56,7 @@ export default class NewsFeed extends React.PureComponent {
                                 </View>
                             } />
                     </View>
+                    {/* Most Voted News */}
                     <View style={styles.newsView}>
                         <Image source={require('../../images/captain_america.jpg')} style={styles.mostImage} />
                         <View style={styles.mostNewsContent}>
@@ -64,18 +66,22 @@ export default class NewsFeed extends React.PureComponent {
                                 because nobody takes it seriously
                             </Text>
                         </View>
-                        <Item style={[styles.noBottomBorder, styles.userButtonGroup]}>
-                            <Button transparent style={styles.userButton}>
-                                <Text style={styles.userButtonText}>Follow</Text>
-                            </Button>
-                            <Button transparent style={styles.userButton}>
-                                <Text style={styles.userButtonText}>Share</Text>
-                            </Button>
-                            <Button transparent style={styles.userButton}>
-                                <Text style={styles.userButtonText}>Save</Text>
-                            </Button>
+                        <Item style={styles.noBottomBorder}>
+                            <Left>
+                                <Text style={styles.readingMessage}>145 read or talking about this</Text>
+                            </Left>
+                            <Item style={[styles.noBottomBorder, styles.userButtonGroup]}>
+                                <Button transparent style={styles.userButton}>
+                                    <Text style={styles.userButtonText}>Follow</Text>
+                                </Button>
+                                <Button transparent style={styles.userButton}>
+                                    <Text style={styles.userButtonText}>Share</Text>
+                                </Button>
+                                <Button transparent style={styles.userButton}>
+                                    <Text style={styles.userButtonText}>Save</Text>
+                                </Button>
+                            </Item>
                         </Item>
-
                     </View>
                 </Content>
             </Container>
@@ -84,6 +90,9 @@ export default class NewsFeed extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#F6F6F6'
+    },
     treadingView: {
         padding: 10,
     },
@@ -103,7 +112,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0,
     },
     newsView: {
-        backgroundColor: "#FFF",
+        backgroundColor: '#FFF',
         padding: 10
     },
     mostImage: {
@@ -111,22 +120,30 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     newsIcon: {
-        height: 12,
+        height: 10,
     },
     mostNewsContent: {
         paddingVertical: 10
     },
     mostNewsTitle: {
-        paddingVertical: 8
+        paddingVertical: 8,
+        color: '#333',
+        fontWeight: 'bold',
+        fontSize: 13
+    },
+    readingMessage: {
+        fontSize: 8,
+        color: '#444'
     },
     userButtonGroup: {
         alignSelf: 'flex-end',
     },
     userButton: {
-        paddingLeft: 0,
-        marginLeft: 0
+        paddingHorizontal: 3,
     },
     userButtonText: {
-        fontSize: 12
+        fontSize: 9,
+        paddingRight: 5,
+        paddingLeft: 5
     }
 });

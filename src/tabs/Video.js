@@ -9,7 +9,7 @@ export default class NewsFeed extends React.PureComponent {
         tabBarLabel: 'Video',
         tabBarIcon: ({ tintColor, focused }) => (
             <Icon name="md-play"
-                style={{ color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
+            style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
         )
     }
 

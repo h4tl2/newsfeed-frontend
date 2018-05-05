@@ -9,7 +9,7 @@ export default class NewsFeed extends React.PureComponent {
         tabBarLabel: 'Discover',
         tabBarIcon: ({ tintColor, focused }) => (
             <Icon name="ios-globe-outline"
-                style={{ color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
+            style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
         )
     }
 
