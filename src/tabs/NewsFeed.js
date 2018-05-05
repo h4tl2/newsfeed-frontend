@@ -23,16 +23,16 @@ export default class NewsFeed extends React.PureComponent {
 
     //Mock Data
     treadingData = [
-        { name: "Avenger", uri: "https://icon.kisspng.com/20180320/qsw/kisspng-captain-america-thor-logo-library-icon-avengers-5ab1351c0a8d37.9870427615215629080432.jpg" },
-        { name: "เสือดำ", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "BNK48", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "bodyslam", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "Magicskin", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "Ironman", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "Dota2", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "ROV", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "PUBG", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
-        { name: "Tencent", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
+        { name: "Avenger", uri: "https://www.matichon.co.th/wp-content/uploads/2018/05/avengers-infinity-war3.jpg" },
+        { name: "เสือดำ", uri: "https://mellobetaprd.s3.ap-southeast-1.amazonaws.com/rerun/2018/03/4784984703.jpg" },
+        { name: "BNK48", uri: "https://pbs.twimg.com/profile_images/875720444078313472/UOJmph0w_400x400.jpg" },
+        { name: "bodyslam", uri: "https://www.songdee.com/wp-content/uploads/2018/05/bodyslam-%E0%B9%83%E0%B8%84%E0%B8%A3%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%A3%E0%B8%B2-510x510.jpg" },
+        { name: "Magicskin", uri: "https://i.ebayimg.com/images/g/q8UAAOSwVFZZcY1Q/s-l300.jpg" },
+        { name: "Ironman", uri: "https://c1-zingpopculture.eb-cdn.com.au/merchandising/images/packshots/42e8028fdd1149f69bd13deada8e4715_Large.png" },
+        { name: "Dota2", uri: "https://orig00.deviantart.net/97fe/f/2013/332/c/4/dota_2_icon_by_benashvili-d6w0695.png" },
+        { name: "ROV", uri: "https://static-s.aa-cdn.net/img/gp/20600006696363/SPz_fSrVrO_hrfDAHFS9gwgr6nZLxh-LgYkUL5Ut_xnA1Oz3JvZZoZaSC-zVzcQvCA=w300" },
+        { name: "PUBG", uri: "https://image.winudf.com/v2/image/Y29tLndQVUJHQmF0dGxlZ3JvdW5kc182MzgwNTEzX2ljb25fMTUxNjc1ODI1NF8wODg/icon.png?w=170&fakeurl=1&type=.png" },
+        { name: "QQ", uri: "https://www.techxcite.com/uploads/20111121120831.jpg" },
     ]
     mockLikeIcon = [
         "https://react.semantic-ui.com/assets/images/avatar/large/jenny.jpg",
