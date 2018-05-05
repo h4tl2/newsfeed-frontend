@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground } from 'react-native';
 import {
     Container, Header, Content, Left, Body, Right, Text, Icon, Item, ListItem,
-    Button, List, Thumbnail,
+    Button, List, Thumbnail, Grid, Row, Col
 } from 'native-base';
 import { rootStyle, variableStyle } from '../../shared/app.style';
 
@@ -32,6 +32,12 @@ export default class NewsFeed extends React.PureComponent {
         { name: "Dota2", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
         { name: "ROV", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
         { name: "PUBG", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
+        { name: "Tencent", uri: "https://facebook.github.io/react-native/docs/assets/favicon.png" },
+    ]
+    mockLikeIcon = [
+        "https://react.semantic-ui.com/assets/images/avatar/large/jenny.jpg",
+        "https://react.semantic-ui.com/assets/images/avatar/large/justen.jpg",
+        "https://react.semantic-ui.com/assets/images/avatar/large/stevie.jpg",
     ]
     render() {
 
@@ -51,14 +57,18 @@ export default class NewsFeed extends React.PureComponent {
                         <List horizontal={true} dataArray={this.treadingData}
                             renderRow={(item) =>
                                 <View style={styles.trendingList}>
-                                    <Thumbnail source={{ uri: item.uri }} /> {"\n"}
+                                    <Image source={{ uri: item.uri }} style={styles.trendingIcon} /> {"\n"}
                                     <Text style={styles.treadingTag}>#{item.name}</Text>
                                 </View>
                             } />
                     </View>
                     {/* Most Voted News */}
                     <View style={styles.newsView}>
-                        <Image source={require('../../images/captain_america.jpg')} style={styles.mostImage} />
+                        <ImageBackground source={require('../../images/avengerinfinitywar.jpg')} style={styles.mostImage} >
+                            <View style={styles.mostImageView}>
+                                <Text style={styles.mostImageText}>#AvengerInfinityWar</Text>
+                            </View>
+                        </ImageBackground>
                         <View style={styles.mostNewsContent}>
                             <Image source={require('../../images/the-verge.png')} resizeMode="cover" style={styles.newsIcon} />
                             <Text style={styles.mostNewsTitle}>
@@ -67,9 +77,18 @@ export default class NewsFeed extends React.PureComponent {
                             </Text>
                         </View>
                         <Item style={styles.noBottomBorder}>
-                            <Left>
-                                <Text style={styles.readingMessage}>145 read or talking about this</Text>
-                            </Left>
+                            <ListItem style={[styles.noBottomBorder, { marginLeft: 0 }]}>
+                                {
+                                    //รูป icon person
+                                    this.mockLikeIcon.map((data, index) => {
+                                        return (
+                                            <Image key={index} style={[styles.likedNewsIcon, index == 0 ? { marginLeft: -2 } : ""]}
+                                                source={{ uri: data }} />
+                                        );
+                                    })
+                                }
+                                <Text style={styles.readingMessage}> 145 read or talking about this</Text>
+                            </ListItem>
                             <Item style={[styles.noBottomBorder, styles.userButtonGroup]}>
                                 <Button transparent style={styles.userButton}>
                                     <Text style={styles.userButtonText}>Follow</Text>
@@ -83,6 +102,11 @@ export default class NewsFeed extends React.PureComponent {
                             </Item>
                         </Item>
                     </View>
+                    {/* News */}
+                    <Grid>
+                        <Col style={{ backgroundColor: '#635DB7', height: 200, width: '60%' }}></Col>
+                        <Col style={{ backgroundColor: '#00CE9F', height: 200 }}></Col>
+                    </Grid>
                 </Content>
             </Container>
         );
@@ -98,15 +122,24 @@ const styles = StyleSheet.create({
     },
     trendingText: {
         fontWeight: 'bold',
+        fontSize: 13,
+        color: '#333'
     },
     trendingList: {
         paddingHorizontal: 7,
-        borderBottomWidth: 0
+        borderBottomWidth: 0,
+        alignItems: 'center',
     },
     treadingTag: {
-        fontSize: 12,
+        fontSize: 8,
         textAlign: 'center',
-        paddingTop: 5
+        paddingTop: 5,
+        color: '#555'
+    },
+    trendingIcon: {
+        width: 45,
+        height: 45,
+        borderRadius: 23,
     },
     noBottomBorder: {
         borderBottomWidth: 0,
@@ -116,8 +149,21 @@ const styles = StyleSheet.create({
         padding: 10
     },
     mostImage: {
-        height: 250,
+        height: 175,
         width: '100%',
+    },
+    mostImageView: {
+        position: 'absolute',
+        top: 7,
+        left: 7,
+        backgroundColor: '#009DD3',
+        paddingVertical: 5,
+        paddingHorizontal: 10
+    },
+    mostImageText: {
+        fontSize: 10,
+        color: '#FFF',
+        fontWeight: 'bold'
     },
     newsIcon: {
         height: 10,
@@ -131,6 +177,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 13
     },
+    readingMessageGroup: {
+        marginLeft: 0,
+        borderBottomWidth: 0,
+    },
+    likedNewsIcon: {
+        height: 25,
+        width: 25,
+        borderRadius: 13,
+        marginLeft: -9
+    },
     readingMessage: {
         fontSize: 8,
         color: '#444'
@@ -140,6 +196,7 @@ const styles = StyleSheet.create({
     },
     userButton: {
         paddingHorizontal: 3,
+        marginVertical: 3
     },
     userButtonText: {
         fontSize: 9,

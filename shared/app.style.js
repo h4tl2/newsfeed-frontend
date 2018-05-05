@@ -12,9 +12,9 @@ export const rootStyle = StyleSheet.create({
     },
     headerText: {
         color: "#005EEB",
-        fontSize: 28,
+        fontSize: 24,
         paddingHorizontal: 8,
-        paddingVertical: 15,
+        paddingVertical: 5,
         fontWeight: 'bold'
     },
     tabIconFocused: {
