@@ -6,7 +6,7 @@ import { rootStyle, variableStyle } from '../../shared/app.style';
 export default class NewsFeed extends React.PureComponent {
 
     static navigationOptions = {
-        tabBarLabel: 'Chat',
+        tabBarLabel: 'Saved',
         tabBarIcon: ({ tintColor, focused }) => (
             <Icon name="ios-bookmark-outline"
             style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
