@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import {
     Container, Header, Content, Left, Body, Right, Text, Item, Icon, Button,
-    List, ListItem, Card, CardItem, Thumbnail
+    List, ListItem, Card, CardItem, Thumbnail, Footer, FooterTab
 } from 'native-base';
+
 import { rootStyle } from '../shared/app.style';
 
 export default class Detail extends React.PureComponent {
@@ -29,15 +30,21 @@ export default class Detail extends React.PureComponent {
         { uri: 'https://image.ibb.co/kX42zS/download.jpg' }
     ];
     mockTopComment = [
-        { avatar: 'https://react.semantic-ui.com/assets/images/avatar/large/jenny.jpg', name: 'Trey @TreyTheArtist', from: 'Twitter',
-            comment: '#InfinityWar si a true a spectacle. A true culmination of 10-years. I\'m so glad to be apart of the journey' + 
-            ' and I can\'t stop thinking about it. Go see it. This is the absolute Best Marvel Movie to date...\n#AvengerInfinityWar @MarvelStudio' },
-            { avatar: 'https://react.semantic-ui.com/assets/images/avatar/large/stevie.jpg', name: 'Chen Angelo', from: 'Facebook',
+        {
+            avatar: 'https://react.semantic-ui.com/assets/images/avatar/large/jenny.jpg', name: 'Trey @TreyTheArtist', from: 'Twitter',
+            comment: '#InfinityWar si a true a spectacle. A true culmination of 10-years. I\'m so glad to be apart of the journey' +
+                ' and I can\'t stop thinking about it. Go see it. This is the absolute Best Marvel Movie to date...\n#AvengerInfinityWar @MarvelStudio'
+        },
+        {
+            avatar: 'https://react.semantic-ui.com/assets/images/avatar/large/stevie.jpg', name: 'Chen Angelo', from: 'Facebook',
             comment: 'Lorem ipsum dolor sit amet, ne case veri delicatissimi mea. His porro aperiam ceteros no, nec in sumo volutpat constituto. Et odio vulputate vis' +
-            ' Aeterno habemus apeirian eum et \n#AvengerInfinityWar' },
-            { avatar: 'https://react.semantic-ui.com/assets/images/avatar/large/justen.jpg', name: 'Barry Allen', from: 'Instagram',
-            comment: '#InfinityWar si a true a spectacle. A true culmination of 10-years. I\'m so glad to be apart of the journey' + 
-            ' and I can\'t stop thinking about it. \n#AvengerInfinityWar' },
+                ' Aeterno habemus apeirian eum et \n#AvengerInfinityWar'
+        },
+        {
+            avatar: 'https://react.semantic-ui.com/assets/images/avatar/large/justen.jpg', name: 'Barry Allen', from: 'Instagram',
+            comment: '#InfinityWar si a true a spectacle. A true culmination of 10-years. I\'m so glad to be apart of the journey' +
+                ' and I can\'t stop thinking about it. \n#AvengerInfinityWar'
+        },
     ]
     render() {
         return (
@@ -94,6 +101,9 @@ export default class Detail extends React.PureComponent {
                                     Idque delectus corrumpit ut nec. Pro autem veritus ne, ad paulo dolorum per, duis iracundia aliquando nec no. Te recteque instructior mea.
                                     Legere alterum per ne, ex iisque commune cum. Id porro ubique periculis sea, quo cu probo prodesset.
                             </Text>
+                            <Text style={{ color: '#999', fontSize: 12, paddingTop: 10, alignSelf: 'flex-end' }}>
+                                4.3K views | 2.3K retweet
+                            </Text>
                             </View>
                             {/* From other source ex. sanook,CNN*/}
                             <Text style={styles.fromOtherTitle}>From other source</Text>
@@ -128,13 +138,13 @@ export default class Detail extends React.PureComponent {
                                         <Left>
                                             <Thumbnail small source={{ uri: item.avatar }} />
                                             <Body>
-                                                <Text style={{ fontSize: 14}}>{item.name}</Text>
-                                                <Text note style={{ fontSize: 12 }}>via {item.from}</Text>
+                                                <Text style={{ fontSize: 14 }}>{item.name}</Text>
+                                                <Text note style={{ fontSize: 12, paddingTop: 5 }}>via {item.from}</Text>
                                             </Body>
                                         </Left>
                                     </CardItem>
                                     <CardItem cardBody style={{ paddingTop: 8, paddingBottom: 15, paddingHorizontal: 15 }}>
-                                        <Text style={{ fontSize: 12, color: '#5A5A5A', lineHeight: 18, }} numberOfLines={8}>
+                                        <Text style={{ fontSize: 12, color: '#5A5A5A', lineHeight: 20, }} numberOfLines={8}>
                                             {item.comment}
                                         </Text>
                                     </CardItem>
@@ -142,6 +152,19 @@ export default class Detail extends React.PureComponent {
                             } />
                     </View>
                 </Content>
+                <Footer style={{height: 40}}>
+                    <FooterTab>
+                        <Button transparent>
+                            <Text>Follow</Text>
+                        </Button>
+                        <Button transparent>
+                            <Text>Share</Text>
+                        </Button>
+                        <Button transparent>
+                            <Text>Save</Text>
+                        </Button>
+                    </FooterTab>
+                </Footer>
             </Container>
         );
     }
@@ -152,7 +175,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF'
     },
     detail: {
-        padding: 8
+        padding: 10
     },
     noBorderBottom: {
         borderBottomWidth: 0,
@@ -170,13 +193,13 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 18,
         color: '#333',
-        paddingVertical: 5,
+        paddingVertical: 10,
         fontWeight: 'bold'
     },
     listLikeItem: {
         marginLeft: 0,
         paddingRight: 0,
-        marginVertical: 3
+        marginVertical: 5
     },
     likedNewsIcon: {
         height: 23,
@@ -191,7 +214,7 @@ const styles = StyleSheet.create({
     contentText: {
         color: '#5A5A5A',
         fontSize: 14,
-        lineHeight: 18
+        lineHeight: 20
     },
     fromOtherTitle: {
         fontSize: 14,
@@ -220,5 +243,8 @@ const styles = StyleSheet.create({
     },
     commentHeaderText: {
         fontSize: 14
+    },
+    userButton: {
+        paddingTop: 0,
     }
 });
