@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         color: '#FFF',
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center'
     },

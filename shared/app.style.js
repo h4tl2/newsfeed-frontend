@@ -8,7 +8,9 @@ export const rootStyle = StyleSheet.create({
         paddingBottom: 5
     },
     headerBG: {
-        backgroundColor: "#FFF"
+        backgroundColor: "#FFF",
+        borderBottomWidth: 0.3,
+        borderColor: '#DDD'
     },
     headerText: {
         color: "#005EEB",

@@ -95,9 +95,8 @@ export default class NewsFeed extends React.PureComponent {
                             <View style={styles.mostNewsContent}>
                                 <Image source={require('../../images/the-verge.png')} resizeMode="contain" />
                                 <Text style={styles.mostNewsTitle}>
-                                    Avenger: Infinity War's bravest moment only works
-                                    because nobody takes it seriously
-                            </Text>
+                                    'Avengers: Infinity War' Is Set to Cross $1 Billion Box Office Mark in Record Time
+                                </Text>
                             </View>
                         </TouchableOpacity>
                         <Item style={[styles.noBottomBorder, styles.userControlGroup]}>
@@ -291,7 +290,8 @@ const styles = StyleSheet.create({
 
     newsTag: {
         fontSize: 10,
-        color: '#00A9E2'
+        color: '#00A9E2',
+        fontWeight: 'bold'
     },
     newsImage: {
         height: 75,
