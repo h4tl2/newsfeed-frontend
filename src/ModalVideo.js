@@ -25,7 +25,7 @@ export default class ModalVideo extends React.PureComponent {
             <View>
                 <StatusBar hidden={this.props.modalVisible} />
                 <Modal
-                    animationType="slide"
+                    animationType="fade"
                     transparent={false}
                     visible={this.props.modalVisible} >
                     <ImageBackground source={require('../images/galaxy.jpg')} style={styles.container}>
