@@ -98,7 +98,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.newsfeed_mobile_native"
+        applicationId "com.gazette"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

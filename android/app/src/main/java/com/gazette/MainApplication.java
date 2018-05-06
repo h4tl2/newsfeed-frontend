@@ -1,4 +1,4 @@
-package com.newsfeed_mobile_native;
+package com.gazette;
 
 import android.app.Application;
 

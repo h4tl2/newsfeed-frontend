@@ -152,7 +152,7 @@ export default class Detail extends React.PureComponent {
                             } />
                     </View>
                 </Content>
-                <Footer style={{height: 40}}>
+                <Footer>
                     <FooterTab>
                         <Button transparent>
                             <Text>Follow</Text>

@@ -50,7 +50,7 @@ export default class Chat extends React.PureComponent {
                                     <ListItem key={key}>
                                         <Thumbnail small source={{ uri: data.uri }} />
                                         <Body>
-                                            <Text>#{data.hashTag}</Text>
+                                            <Text style={{ color: '#444' }}>#{data.hashTag}</Text>
                                             <Text note>{data.lastMessage}</Text>
                                         </Body>
                                     </ListItem>

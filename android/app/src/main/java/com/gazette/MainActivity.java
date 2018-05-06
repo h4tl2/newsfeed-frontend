@@ -1,4 +1,4 @@
-package com.newsfeed_mobile_native;
+package com.gazette;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "newsfeed_mobile_native";
+        return "Gazette";
     }
 }
