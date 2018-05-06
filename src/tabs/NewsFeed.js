@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Image, ImageBackground } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import {
     Container, Header, Content, Left, Body, Right, Text, Icon, Item, ListItem,
     Button, List, Thumbnail, Grid, Row, Col
 } from 'native-base';
 import { rootStyle, variableStyle } from '../../shared/app.style';
+import ModalVideo from '../ModalVideo';
 
 export default class NewsFeed extends React.PureComponent {
 
@@ -18,7 +19,15 @@ export default class NewsFeed extends React.PureComponent {
 
     constructor() {
         super();
-        this.state = {}
+        this.state = { modalVisible: false }
+    }
+
+    onCloseModal = () => {
+        this.setState({ modalVisible: false });
+    }
+
+    openVideoModal = (videoId) => e => {
+        this.setState({ modalVisible: true });
     }
 
     //Mock Data
@@ -59,14 +68,16 @@ export default class NewsFeed extends React.PureComponent {
                     </View>
                     <View style={styles.treadingView}>
                         <Item style={styles.noBottomBorder}>
-                            <Icon name="ios-list" /><Text style={styles.trendingText}>Trending</Text>
+                            <Icon name="ios-trending-up" style={{ fontSize: 18 }} /><Text style={styles.trendingText}>Trending</Text>
                         </Item>
-                        <List horizontal={true} dataArray={this.treadingData}
+                        <List horizontal={true} dataArray={this.treadingData} style={{ marginTop: 5 }}
                             renderRow={(item) =>
-                                <View style={styles.trendingList}>
-                                    <Image source={{ uri: item.uri }} style={styles.trendingIcon} /> {"\n"}
-                                    <Text style={styles.treadingTag}>#{item.name}</Text>
-                                </View>
+                                <TouchableOpacity onPress={this.openVideoModal(1)}>
+                                    <View style={styles.trendingList}>
+                                        <Image source={{ uri: item.uri }} style={styles.trendingIcon} /> {"\n"}
+                                        <Text style={styles.treadingTag}>#{item.name}</Text>
+                                    </View>
+                                </TouchableOpacity>
                             } />
                     </View>
                     {/* Most Voted News */}
@@ -117,7 +128,7 @@ export default class NewsFeed extends React.PureComponent {
                                 return (
                                     <View key={key}>
                                         <Grid>
-                                            <Col  size={3}>
+                                            <Col size={3}>
                                                 <Item style={styles.noBottomBorder}>
                                                     <Image source={require('../../images/huffpost.png')} resizeMode="contain" />
                                                     <Text style={styles.newsTag}> #{data.hashTag}</Text>
@@ -162,6 +173,7 @@ export default class NewsFeed extends React.PureComponent {
                         }
                     </View>
                 </Content>
+                <ModalVideo modalVisible={this.state.modalVisible} onCloseModal={this.onCloseModal} />
             </Container>
         );
     }
@@ -177,7 +189,7 @@ const styles = StyleSheet.create({
     trendingText: {
         fontWeight: 'bold',
         fontSize: 13,
-        color: '#333'
+        color: '#333',
     },
     trendingList: {
         paddingHorizontal: 7,
