@@ -10,6 +10,7 @@ import Chat from '../src/tabs/Chat';
 import Video from '../src/tabs/Video';
 import Discover from '../src/tabs/Discover';
 import Saved from '../src/tabs/Saved';
+import Detail from '../src/detail';
 
 var TabRoutes = TabNavigator({
     NewsFeed: { screen: NewsFeed },
@@ -34,6 +35,9 @@ const StackRoutes = StackNavigator({
     App: {
         screen: TabRoutes
     },
+    Detail: {
+        screen: Detail
+    }
 },
 {
     initialRouteName: "App",

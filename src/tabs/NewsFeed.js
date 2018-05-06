@@ -30,6 +30,10 @@ export default class NewsFeed extends React.PureComponent {
         this.setState({ modalVisible: true });
     }
 
+    goDetailScreen = (newsId) => e => {
+        this.props.navigation.navigate('Detail', { newsId: 1 });
+    }
+
     //Mock Data
     treadingData = [
         { name: "Avenger", uri: "https://www.matichon.co.th/wp-content/uploads/2018/05/avengers-infinity-war3.jpg" },
@@ -82,18 +86,20 @@ export default class NewsFeed extends React.PureComponent {
                     </View>
                     {/* Most Voted News */}
                     <View style={styles.newsView}>
-                        <ImageBackground source={require('../../images/avengerinfinitywar.jpg')} style={styles.mostImage} >
-                            <View style={styles.mostImageView}>
-                                <Text style={styles.mostImageText}>#AvengerInfinityWar</Text>
-                            </View>
-                        </ImageBackground>
-                        <View style={styles.mostNewsContent}>
-                            <Image source={require('../../images/the-verge.png')} resizeMode="contain" />
-                            <Text style={styles.mostNewsTitle}>
-                                Avenger: Infinity War's bravest moment only works
-                                because nobody takes it seriously
+                        <TouchableOpacity onPress={this.goDetailScreen(1)}>
+                            <ImageBackground source={require('../../images/avengerinfinitywar.jpg')} style={styles.mostImage} >
+                                <View style={styles.mostImageView}>
+                                    <Text style={styles.mostImageText}>#AvengerInfinityWar</Text>
+                                </View>
+                            </ImageBackground>
+                            <View style={styles.mostNewsContent}>
+                                <Image source={require('../../images/the-verge.png')} resizeMode="contain" />
+                                <Text style={styles.mostNewsTitle}>
+                                    Avenger: Infinity War's bravest moment only works
+                                    because nobody takes it seriously
                             </Text>
-                        </View>
+                            </View>
+                        </TouchableOpacity>
                         <Item style={[styles.noBottomBorder, styles.userControlGroup]}>
                             <ListItem
                                 style={[styles.noBottomBorder, styles.listLikeItem]}>
@@ -127,20 +133,22 @@ export default class NewsFeed extends React.PureComponent {
                             this.mockNews1.map((data, key) => {
                                 return (
                                     <View key={key}>
-                                        <Grid>
-                                            <Col size={3}>
-                                                <Item style={styles.noBottomBorder}>
-                                                    <Image source={require('../../images/huffpost.png')} resizeMode="contain" />
-                                                    <Text style={styles.newsTag}> #{data.hashTag}</Text>
-                                                </Item>
-                                                <Text style={styles.mostNewsTitle}>
-                                                    CEO Mark Zuckerberg Says Facebook Will Rank News Outlets By Trustworthlines
+                                        <TouchableOpacity onPress={this.goDetailScreen(1)}>
+                                            <Grid>
+                                                <Col size={3}>
+                                                    <Item style={styles.noBottomBorder}>
+                                                        <Image source={require('../../images/huffpost.png')} resizeMode="contain" />
+                                                        <Text style={styles.newsTag}> #{data.hashTag}</Text>
+                                                    </Item>
+                                                    <Text style={styles.mostNewsTitle}>
+                                                        CEO Mark Zuckerberg Says Facebook Will Rank News Outlets By Trustworthlines
                                             </Text>
-                                            </Col>
-                                            <Col size={2} style={styles.newsImageContain}>
-                                                <Image source={require('../../images/mark-zuckerberg.jpg')} style={styles.newsImage} />
-                                            </Col>
-                                        </Grid>
+                                                </Col>
+                                                <Col size={2} style={styles.newsImageContain}>
+                                                    <Image source={require('../../images/mark-zuckerberg.jpg')} style={styles.newsImage} />
+                                                </Col>
+                                            </Grid>
+                                        </TouchableOpacity>
                                         <Item style={[styles.noBottomBorder, styles.userControlGroup]}>
                                             <ListItem
                                                 style={[styles.noBottomBorder, styles.listLikeItem]}>
@@ -173,7 +181,8 @@ export default class NewsFeed extends React.PureComponent {
                         }
                     </View>
                 </Content>
-                <ModalVideo modalVisible={this.state.modalVisible} onCloseModal={this.onCloseModal} />
+                <ModalVideo modalVisible={this.state.modalVisible} onCloseModal={this.onCloseModal}
+                    navigation={this.props.navigation} />
             </Container>
         );
     }

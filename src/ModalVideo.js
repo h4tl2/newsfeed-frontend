@@ -15,6 +15,11 @@ export default class ModalVideo extends React.PureComponent {
         this.props.onCloseModal();
     }
 
+    onClickReadmore = () => {
+        this.props.onCloseModal();
+        this.props.navigation.navigate('Detail', { newsId: 1 });
+    }
+
     render() {
         return (
             <View>
@@ -50,12 +55,12 @@ export default class ModalVideo extends React.PureComponent {
                                     <Text style={styles.statusText}>4.3k views</Text>
                                     <Text style={styles.statusText}>2.3k retweet</Text>
                                 </View>
-                                <TouchableOpacity style={styles.readButton}>
+                                <TouchableOpacity style={styles.readButton} onPress={this.onClickReadmore}>
                                     <Text style={styles.readButtonText}>Read more</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
-                        <TouchableOpacity style={styles.closeView} onPress={this.onCloseModal}>
+                        <TouchableOpacity style={styles.closeView} onPress={this.onCloseModal} >
                             <Icon name='md-close' style={styles.closeIcon} />
                         </TouchableOpacity>
                     </ImageBackground>
