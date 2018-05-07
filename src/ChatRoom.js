@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, ScrollView } from 'react-native';
 import { Header, Text, Item, Container, Content, Left, Body, Right, Button, Icon, Footer, FooterTab, Input } from 'native-base';
 import { rootStyle, variableStyle } from '../shared/app.style';
 
@@ -32,27 +32,38 @@ export default class ChatRoom extends React.PureComponent {
             self: true,
             message: this.state.message
         })
-        this.refs.contentView._root.scrollToEnd({animated: true});
         this.setState({ message: '', mockMessage })
     }
 
+    onFocusInput = () => {
+        setTimeout(() => { this.chatView.scrollToEnd({ animated: true }); }, 300);
+    }
+
+    scrollToBottomY = 0
+
     render() {
         return (
-            <Container>
+            <View style={{ flex: 1 }}>
                 <Header style={rootStyle.headerStyle} />
-                <Content style={{ backgroundColor: '#FFF' }} ref="contentView" >
-                    <Item style={[rootStyle.headerBG]}>
-                        <Left>
-                            <Button transparent onPress={this.onPressBackButton}>
-                                <Icon name='arrow-back' />
-                            </Button>
-                        </Left>
-                        <Text style={[rootStyle.headerText, styles.headerTitle]} numberOfLines={1}>
-                            {this.props.navigation.state.params.roomName}
-                        </Text>
-                        <Right />
-                    </Item>
-                    {/*Chat Content*/}
+
+
+                <Item style={[rootStyle.headerBG]}>
+                    <Left>
+                        <Button transparent onPress={this.onPressBackButton}>
+                            <Icon name='arrow-back' />
+                        </Button>
+                    </Left>
+                    <Text style={[rootStyle.headerText, styles.headerTitle]} numberOfLines={1}>
+                        {this.props.navigation.state.params.roomName}
+                    </Text>
+                    <Right />
+                </Item>
+                {/*Chat Content*/}
+                <ScrollView style={{ backgroundColor: '#FFF', flex: 1 }}
+                    ref={ref => this.chatView = ref}
+                    onContentSizeChange={(contentWidth, contentHeight) => {
+                        this.chatView.scrollToEnd({ animated: true });
+                    }} >
                     <View style={styles.container} >
                         {
                             this.state.mockMessage.map((data, key) => {
@@ -64,10 +75,13 @@ export default class ChatRoom extends React.PureComponent {
                             })
                         }
                     </View>
-                </Content>
+
+                </ScrollView>
                 <KeyboardAvoidingView behavior="padding" >
                     <Item rounded style={[styles.noBorderBottom, { height: 35, backgroundColor: '#FFF', margin: 5 }]}>
-                        <Input placeholder='Type Message...' onChangeText={this.onChangeMessage} value={this.state.message} />
+                        <Input placeholder='Type Message...' onChangeText={this.onChangeMessage}
+                            value={this.state.message} onFocus={this.onFocusInput}
+                            returnKeyType="go" onSubmitEditing={this.onSendMessage} />
                         <TouchableOpacity>
                             <Icon name="md-happy" />
                         </TouchableOpacity>
@@ -79,7 +93,8 @@ export default class ChatRoom extends React.PureComponent {
                         }
                     </Item>
                 </KeyboardAvoidingView>
-            </Container>
+
+            </View>
         );
     }
 }
@@ -94,6 +109,7 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 10,
         paddingVertical: 5,
+        flex: 1
     },
     chatBox: {
         maxWidth: '60%',
