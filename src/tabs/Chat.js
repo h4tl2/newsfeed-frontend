@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Container, Header, Content, Text, Icon, ListItem, List, Left, Body, Right, Thumbnail } from 'native-base';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Container, Header, Content, Text, Icon, ListItem, List, Left, Body, Right, Thumbnail, Item } from 'native-base';
 import { variableStyle, rootStyle } from '../../shared/app.style';
 
 export default class Chat extends React.PureComponent {
@@ -19,6 +19,10 @@ export default class Chat extends React.PureComponent {
         this.state = {
 
         };
+    }
+
+    goChatRoom = (roomName) => e => {
+        this.props.navigation.navigate('ChatRoom', { roomName: roomName });
     }
 
     mockChat = [
@@ -43,21 +47,18 @@ export default class Chat extends React.PureComponent {
                     <View style={rootStyle.headerBG}>
                         <Text style={rootStyle.headerText}>Chat</Text>
                     </View>
-                    <List>
-                        {
-                            this.mockChat.map((data, key) => {
-                                return (
-                                    <ListItem key={key}>
-                                        <Thumbnail small source={{ uri: data.uri }} />
-                                        <Body>
-                                            <Text style={{ color: '#444' }}>#{data.hashTag}</Text>
-                                            <Text note>{data.lastMessage}</Text>
-                                        </Body>
-                                    </ListItem>
-                                );
-                            })
-                        }
-                    </List>
+                    <List dataArray={this.mockChat}
+                        renderRow={(data) =>
+                            <ListItem>
+                                <TouchableOpacity onPress={this.goChatRoom(`#${data.hashTag}`)} style={{ flexDirection: 'row' }}>
+                                    <Thumbnail small source={{ uri: data.uri }} />
+                                    <Body>
+                                        <Text style={{ color: '#444' }}>#{data.hashTag}</Text>
+                                        <Text note style={{ fontSize: 12 }} numberOfLines={1}>{data.lastMessage}</Text>
+                                    </Body>
+                                </TouchableOpacity>
+                            </ListItem>
+                        } />
                 </Content>
             </Container>
         );

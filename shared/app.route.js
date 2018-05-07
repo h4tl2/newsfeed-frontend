@@ -11,6 +11,7 @@ import Video from '../src/tabs/Video';
 import Discover from '../src/tabs/Discover';
 import Saved from '../src/tabs/Saved';
 import Detail from '../src/detail';
+import ChatRoom from '../src/ChatRoom';
 
 var TabRoutes = TabNavigator({
     NewsFeed: { screen: NewsFeed },
@@ -37,6 +38,9 @@ const StackRoutes = StackNavigator({
     },
     Detail: {
         screen: Detail
+    },
+    ChatRoom: {
+        screen: ChatRoom
     }
 },
 {
