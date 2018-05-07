@@ -68,7 +68,7 @@ export default class NewsFeed extends React.PureComponent {
                 <Content>
                     {/* Top 10 Hashtag */}
                     <View style={rootStyle.headerBG}>
-                        <Text style={rootStyle.headerText}>NewsFeed</Text>
+                        <Text style={rootStyle.headerText}>Newsfeed</Text>
                     </View>
                     <View style={styles.treadingView}>
                         <Item style={styles.noBottomBorder}>

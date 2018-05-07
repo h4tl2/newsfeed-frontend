@@ -101,8 +101,8 @@ export default class Detail extends React.PureComponent {
                                     Idque delectus corrumpit ut nec. Pro autem veritus ne, ad paulo dolorum per, duis iracundia aliquando nec no. Te recteque instructior mea.
                                     Legere alterum per ne, ex iisque commune cum. Id porro ubique periculis sea, quo cu probo prodesset.
                             </Text>
-                            <Text style={{ color: '#999', fontSize: 12, paddingTop: 10, alignSelf: 'flex-end' }}>
-                                4.3K views | 2.3K retweet
+                                <Text style={{ color: '#999', fontSize: 12, paddingTop: 10, alignSelf: 'flex-end' }}>
+                                    4.3K views | 2.3K retweet
                             </Text>
                             </View>
                             {/* From other source ex. sanook,CNN*/}
@@ -154,14 +154,23 @@ export default class Detail extends React.PureComponent {
                 </Content>
                 <Footer>
                     <FooterTab>
-                        <Button transparent>
-                            <Text>Follow</Text>
+                        <Button transparent onPress={() => {}}>
+                            <Item style={styles.noBorderBottom}>
+                                <Icon name="ios-add-circle" />
+                                <Text style={{ fontSize: 14 }}>Follow</Text>
+                            </Item>
                         </Button>
-                        <Button transparent>
-                            <Text>Share</Text>
+                        <Button transparent onPress={() => {}}>
+                            <Item style={styles.noBorderBottom}>
+                                <Icon name="ios-share-alt" />
+                                <Text style={{ fontSize: 14 }}>Share</Text>
+                            </Item>
                         </Button>
-                        <Button transparent>
-                            <Text>Save</Text>
+                        <Button transparent onPress={() => {}}>
+                            <Item style={styles.noBorderBottom}>
+                                <Icon name="ios-bookmark" />
+                                <Text style={{ fontSize: 14 }}>Save</Text>
+                            </Item>
                         </Button>
                     </FooterTab>
                 </Footer>
@@ -236,6 +245,8 @@ const styles = StyleSheet.create({
         width: 45,
         height: 45,
         borderRadius: 23,
+        borderWidth: 0.5,
+        borderColor: '#999'
     },
     commentContainer: {
         backgroundColor: '#EBEBEB',

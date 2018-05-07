@@ -16,7 +16,7 @@ export const rootStyle = StyleSheet.create({
         color: "#005EEB",
         fontSize: 24,
         padding: 8,
-        fontWeight: 'bold'
+        fontWeight: '900',
     },
     headerPadder: {
         paddingVertical: 8
