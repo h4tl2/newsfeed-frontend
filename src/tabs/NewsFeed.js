@@ -37,8 +37,8 @@ export default class NewsFeed extends React.PureComponent {
     //Mock Data
     treadingData = [
         { name: "Avenger", uri: "https://www.matichon.co.th/wp-content/uploads/2018/05/avengers-infinity-war3.jpg" },
-        { name: "เสือดำ", uri: "https://mellobetaprd.s3.ap-southeast-1.amazonaws.com/rerun/2018/03/4784984703.jpg" },
-        { name: "BNK48", uri: "https://pbs.twimg.com/profile_images/875720444078313472/UOJmph0w_400x400.jpg" },
+        { name: "บุพเพสันนิวาส", uri: "https://mellobetaprd.s3.ap-southeast-1.amazonaws.com/rerun/2018/03/4784984703.jpg" },
+        { name: "เสือดำ", uri: "https://pbs.twimg.com/profile_images/875720444078313472/UOJmph0w_400x400.jpg" },
         { name: "bodyslam", uri: "https://www.songdee.com/wp-content/uploads/2018/05/bodyslam-%E0%B9%83%E0%B8%84%E0%B8%A3%E0%B8%84%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%A3%E0%B8%B2-510x510.jpg" },
         { name: "Magicskin", uri: "https://i.ebayimg.com/images/g/q8UAAOSwVFZZcY1Q/s-l300.jpg" },
         { name: "Ironman", uri: "https://c1-zingpopculture.eb-cdn.com.au/merchandising/images/packshots/42e8028fdd1149f69bd13deada8e4715_Large.png" },
@@ -165,7 +165,7 @@ export default class NewsFeed extends React.PureComponent {
                                                     this.mockLikeIcon.map((data, index) => {
                                                         return (
                                                             <Image key={index} style={[styles.likedNewsIcon, index == 0 ? { marginLeft: -2 } : ""]}
-                                                                source={{ uri: data.img }} />
+                                                                source={{ uri: data }} />
                                                         );
                                                     })
                                                 }
@@ -214,14 +214,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     treadingTag: {
-        fontSize: 8,
+        fontSize: 9,
         textAlign: 'center',
         paddingTop: 5,
         color: '#555'
     },
     trendingIcon: {
-        width: 45,
-        height: 45,
+        width: 50,
+        height: 50,
         borderRadius: 23,
     },
     noBottomBorder: {
