@@ -9,7 +9,7 @@ export default class NewsFeed extends React.PureComponent {
         tabBarLabel: 'Discover',
         tabBarIcon: ({ tintColor, focused }) => (
             <Icon name="ios-globe-outline"
-            style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
+                style={{ fontSize: variableStyle.tabIconSize, color: focused ? variableStyle.tabIconFocused : variableStyle.tabIcon }} />
         )
     }
 
@@ -23,12 +23,14 @@ export default class NewsFeed extends React.PureComponent {
 
             <Container>
                 <Header style={rootStyle.headerStyle} />
-                <Content>
+                <View style={{ flex: 1 }}>
                     <View style={rootStyle.headerBG}>
-                        <Text style={rootStyle.headerText}>Discover</Text>
+                        <Text style={rootStyle.headerText}>Discover List</Text>
                     </View>
-                    <Text>Hello from Discover.js</Text>
-                </Content>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Discover Screen</Text>
+                    </View>
+                </View>
             </Container>
         );
     }

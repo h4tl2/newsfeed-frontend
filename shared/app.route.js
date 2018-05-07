@@ -34,6 +34,9 @@ var TabRoutes = TabNavigator({
 
 const StackRoutes = StackNavigator({
     App: {
+        screen: App
+    },
+    TabRoutes: {
         screen: TabRoutes
     },
     Detail: {

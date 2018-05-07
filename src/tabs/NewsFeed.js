@@ -53,10 +53,14 @@ export default class NewsFeed extends React.PureComponent {
         "https://react.semantic-ui.com/assets/images/avatar/large/stevie.jpg",
     ]
     mockNews1 = [
-        { hashTag: 'Facebook', agencyImg: '../../images/the-verge.png' },
-        { hashTag: 'Twitter', agencyImg: '../../images/the-verge.png' },
-        { hashTag: 'Instagram', agencyImg: '../../images/the-verge.png' },
-        { hashTag: 'Snapchat', agencyImg: '../../images/the-verge.png' },
+        { hashTag: 'Facebook', img: 'https://image.ibb.co/jgePES/mark.jpg', agencyImg: 'https://image.ibb.co/cueVon/huffpost.png',
+            news: 'CEO Mark Zuckerberg Says Facebook Will Rank News Outlets By Trustworthlines' },
+        { hashTag: 'Twitter', img: 'https://image.ibb.co/j5aaM7/elon.jpg', agencyImg: 'https://image.ibb.co/muYC17/the_verge.png',
+            news: 'Space X rocket technology poses major safety risk, Nasa advisers warn' },
+        { hashTag: 'Instagram', img: 'https://image.ibb.co/jm3Ug7/Bill_Gates.jpg', agencyImg: 'https://image.ibb.co/muYC17/the_verge.png',
+            news: `Bill Gates reveals he turned down Trump's offer of a White House job` },
+        { hashTag: 'Snapchat', img: 'https://image.ibb.co/dOkLon/104225995_95_A5004_530x298.jpg', agencyImg: 'https://image.ibb.co/cueVon/huffpost.png',
+            news: `'If trade stops, war starts' Alibaba founder who visited Trump warns` },
 
     ];
     render() {
@@ -136,15 +140,20 @@ export default class NewsFeed extends React.PureComponent {
                                             <Grid>
                                                 <Col size={3}>
                                                     <Item style={styles.noBottomBorder}>
-                                                        <Image source={require('../../images/huffpost.png')} resizeMode="contain" />
+                                                        {
+                                                            key % 2 == 0 ?
+                                                            <Image source={require('../../images/huffpost.png')} resizeMode="contain" />
+                                                            :
+                                                            <Image source={require('../../images/the-verge.png')} resizeMode="contain" />
+                                                        }
                                                         <Text style={styles.newsTag}> #{data.hashTag}</Text>
                                                     </Item>
                                                     <Text style={styles.mostNewsTitle}>
-                                                        CEO Mark Zuckerberg Says Facebook Will Rank News Outlets By Trustworthlines
-                                            </Text>
+                                                        {data.news}    
+                                                    </Text>
                                                 </Col>
                                                 <Col size={2} style={styles.newsImageContain}>
-                                                    <Image source={require('../../images/mark-zuckerberg.jpg')} style={styles.newsImage} />
+                                                    <Image source={{ uri: data.img }} style={styles.newsImage} />
                                                 </Col>
                                             </Grid>
                                         </TouchableOpacity>
@@ -156,7 +165,7 @@ export default class NewsFeed extends React.PureComponent {
                                                     this.mockLikeIcon.map((data, index) => {
                                                         return (
                                                             <Image key={index} style={[styles.likedNewsIcon, index == 0 ? { marginLeft: -2 } : ""]}
-                                                                source={{ uri: data }} />
+                                                                source={{ uri: data.img }} />
                                                         );
                                                     })
                                                 }

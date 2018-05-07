@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    Container, Header, Content, Left, Body, Right, Title, Button, Icon, Text,
-    Tabs, Tab, TabHeading, Footer
-} from 'native-base';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, Image, StatusBar } from 'react-native';
 
 import { rootStyle } from '../shared/app.style';
 
@@ -18,32 +14,31 @@ export default class App extends React.PureComponent {
         };
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.props.navigation.dispatch({ type: 'Navigation/RESET', index: 0, actions: [{ type: 'Navigate', routeName: 'TabRoutes' }] })
+        }, 1500);
+    }
+
     render() {
         return (
-            <Container>
-
-                <NewsFeed />
-
-                <Footer>
-                    <Tabs>
-                        <Tab heading={<TabHeading><Icon name="camera" /><Text>Camera</Text></TabHeading>}>
-                            <Text>Page1</Text>
-                        </Tab>
-                        <Tab heading={<TabHeading><Text>No Icon</Text></TabHeading>}>
-                            <Text>Page2</Text>
-                        </Tab>
-                        <Tab heading={<TabHeading><Icon name="apps" /></TabHeading>}>
-                            <Text>Page3</Text>
-                        </Tab>
-                    </Tabs>
-                </Footer>
-            </Container>
+            <View style={styles.container}>
+                <StatusBar hidden={true} />
+                <Image source={require('../images/applogo.png')} resizeMode="cover" style={styles.Logo} />
+            </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    footerTabBtn: {
-
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFF',
+    },
+    Logo: {
+        height: '100%',
+        width: '100%'
     }
 });

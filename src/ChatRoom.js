@@ -27,12 +27,14 @@ export default class ChatRoom extends React.PureComponent {
     }
 
     onSendMessage = () => {
-        mockMessage = this.state.mockMessage;
-        mockMessage.push({
-            self: true,
-            message: this.state.message
-        })
-        this.setState({ message: '', mockMessage })
+        if (this.state.message.length > 0) {
+            mockMessage = this.state.mockMessage;
+            mockMessage.push({
+                self: true,
+                message: this.state.message
+            })
+            this.setState({ message: '', mockMessage })
+        }
     }
 
     onFocusInput = () => {
