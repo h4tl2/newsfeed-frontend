@@ -127,7 +127,7 @@ export default class NewsFeed extends React.PureComponent {
                         </Item>
                     </View>
                     {/* News */}
-                    <View style={{ padding: 10, paddingTop: 0 }}>
+                    <View style={{ padding: 10, paddingTop: 0, backgroundColor: '#FFF' }}>
                         {
                             this.mockNews1.map((data, key) => {
                                 return (
