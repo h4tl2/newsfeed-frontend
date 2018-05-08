@@ -19,7 +19,10 @@ export default class NewsFeed extends React.PureComponent {
 
     constructor() {
         super();
-        this.state = { modalVisible: false }
+        this.state = { 
+            modalVisible: false,
+            
+        }
     }
 
     onCloseModal = () => {
@@ -32,7 +35,9 @@ export default class NewsFeed extends React.PureComponent {
 
     goDetailScreen = (newsId) => e => {
         this.props.navigation.navigate('Detail', { newsId: 1 });
+        axios.get('http://localhost:5000/usrdat/1/'+newsId)
     }
+
 
     //Mock Data
     treadingData = [
@@ -54,13 +59,13 @@ export default class NewsFeed extends React.PureComponent {
     ]
     mockNews1 = [
         { hashTag: 'Facebook', img: 'https://image.ibb.co/jgePES/mark.jpg', agencyImg: 'https://image.ibb.co/cueVon/huffpost.png',
-            news: 'CEO Mark Zuckerberg Says Facebook Will Rank News Outlets By Trustworthlines' },
+            news: 'CEO Mark Zuckerberg Says Facebook Will Rank News Outlets By Trustworthlines', newsId: 2 },
         { hashTag: 'Twitter', img: 'https://image.ibb.co/j5aaM7/elon.jpg', agencyImg: 'https://image.ibb.co/muYC17/the_verge.png',
-            news: 'Space X rocket technology poses major safety risk, Nasa advisers warn' },
+            news: 'Space X rocket technology poses major safety risk, Nasa advisers warn', newsId: 3 },
         { hashTag: 'Instagram', img: 'https://image.ibb.co/jm3Ug7/Bill_Gates.jpg', agencyImg: 'https://image.ibb.co/muYC17/the_verge.png',
-            news: `Bill Gates reveals he turned down Trump's offer of a White House job` },
+            news: `Bill Gates reveals he turned down Trump's offer of a White House job`, newsId: 4 },
         { hashTag: 'Snapchat', img: 'https://image.ibb.co/dOkLon/104225995_95_A5004_530x298.jpg', agencyImg: 'https://image.ibb.co/cueVon/huffpost.png',
-            news: `'If trade stops, war starts' Alibaba founder who visited Trump warns` },
+            news: `'If trade stops, war starts' Alibaba founder who visited Trump warns`, newsId: 5 },
 
     ];
     render() {
@@ -136,7 +141,7 @@ export default class NewsFeed extends React.PureComponent {
                             this.mockNews1.map((data, key) => {
                                 return (
                                     <View key={key}>
-                                        <TouchableOpacity onPress={this.goDetailScreen(1)}>
+                                        <TouchableOpacity onPress={this.goDetailScreen(data.newsId)}>
                                             <Grid>
                                                 <Col size={3}>
                                                     <Item style={styles.noBottomBorder}>

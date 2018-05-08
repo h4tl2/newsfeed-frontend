@@ -4,7 +4,7 @@ import {
     Container, Header, Content, Left, Body, Right, Text, Item, Icon, Button,
     List, ListItem, Card, CardItem, Thumbnail, Footer, FooterTab
 } from 'native-base';
-
+import TweetEmbed from 'react-tweet-embed';
 import { rootStyle } from '../shared/app.style';
 
 export default class Detail extends React.PureComponent {
@@ -151,6 +151,8 @@ export default class Detail extends React.PureComponent {
                                 </Card>
                             } />
                     </View>
+                    {/* Embed twitter */}
+                    
                 </Content>
                 <Footer>
                     <FooterTab>
