@@ -35,7 +35,7 @@ export default class NewsFeed extends React.PureComponent {
 
     goDetailScreen = (newsId) => e => {
         this.props.navigation.navigate('Detail', { newsId: 1 });
-        axios.get('http://localhost:5000/usrdat/1/'+newsId)
+        //axios.get('http://localhost:5000/usrdat/1/'+newsId)
     }
 
 
