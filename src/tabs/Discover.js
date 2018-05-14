@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import { Container, Header, Content, Text, Icon } from 'native-base';
 import { rootStyle, variableStyle } from '../../shared/app.style';
 
@@ -15,7 +15,8 @@ export default class NewsFeed extends React.PureComponent {
 
     constructor() {
         super();
-        this.state = {}
+        const { width } = Dimensions.get('window');
+        this.screen80 = width * 85 / 100;
     }
 
     render() {
@@ -23,15 +24,21 @@ export default class NewsFeed extends React.PureComponent {
 
             <Container>
                 <Header style={rootStyle.headerStyle} />
-                <View style={{ flex: 1 }}>
-                    <View style={rootStyle.headerBG}>
-                        <Text style={rootStyle.headerText}>Discover List</Text>
+                <Content>
+                    <View style={{ flex: 1 }}>
+                        <View style={rootStyle.headerBG}>
+                            <Text style={rootStyle.headerText}>Discover List</Text>
+                        </View>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Discover Screen</Text>
+                        </View>
                     </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Discover Screen</Text>
-                    </View>
-                </View>
+                </Content>
             </Container>
         );
     }
 }
+
+const styles = StyleSheet.create({
+
+});
